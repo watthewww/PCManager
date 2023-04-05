@@ -146,11 +146,11 @@ public class Set<T> implements Collection<T> {
 	@Override
 	public String toString() {
 		if (size() == 0)
-			return "Set:{ }";
+			return "Set{ }";
 
-		String s = "Set:{" + elements.elementAt(0).toString();
+		String s = "Set{" + elements.elementAt(0).toString();
 		for (int i = 1; i < size(); i++) {
-			s = s + " , " + elements.elementAt(i).toString();
+			s = s + "," + elements.elementAt(i).toString();
 		}
 
 		return s + "}";
