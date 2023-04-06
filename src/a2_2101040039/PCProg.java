@@ -70,11 +70,11 @@ public class PCProg {
 	 */
 	public static void main(String[] args) {
 		//
-		PCProg prog = new PCProg();
+		PCFactory prog = new PCFactory();
 
 		// create objects
 		try {
-			prog.createObjects();
+			PCFactory.createObjects();
 			// display report
 			String report = prog.displayReport();
 			System.out.println(report);

@@ -183,4 +183,16 @@ public class PC {
     public String toString() {
         return "PC<" + model + "," + year + "," + manufacturer + "," + comps + ">";
     }
+
+    @Override
+    public boolean equals(Object pc) {
+        if (pc == this) {
+            return true;
+        }
+        if (!(pc instanceof PC)) {
+            return false;
+        }
+        PC pc1 = (PC) pc;
+        return (model.equalsIgnoreCase(pc1.model)) && (year == pc1.year) && (manufacturer.equalsIgnoreCase(pc1.manufacturer)) && (comps.equals(pc1.comps));
+    }
 }
