@@ -1,5 +1,4 @@
 package a2_2101040039;
-
 import utils.*;
 
 /**
@@ -184,15 +183,16 @@ public class PC {
         return "PC<" + model + "," + year + "," + manufacturer + "," + comps + ">";
     }
 
+
     @Override
-    public boolean equals(Object pc) {
-        if (pc == this) {
+    public boolean equals(Object pc1) {
+        if (pc1 == this) {
             return true;
         }
-        if (!(pc instanceof PC)) {
+        if (!(pc1 instanceof PC)) {
             return false;
         }
-        PC pc1 = (PC) pc;
-        return (model.equalsIgnoreCase(pc1.model)) && (year == pc1.year) && (manufacturer.equalsIgnoreCase(pc1.manufacturer)) && (comps.equals(pc1.comps));
+        PC pc2 = (PC) pc1;
+        return (model.equalsIgnoreCase(pc2.model)) && (year == pc2.year) && manufacturer.equalsIgnoreCase(pc2.manufacturer) && (comps.equals(pc2.comps));
     }
 }
