@@ -80,7 +80,7 @@ public class PCProg {
                 String comps = sc.next();
                 setComps.insert(comps);
             }
-            PCFactory.createObjects(model, year, manufacturer, setComps);
+            objs.insert(PCFactory.createObjects(model, year, manufacturer, setComps));
             // display report
             String report = prog.displayReport();
             System.out.println(report);
