@@ -22,7 +22,7 @@ import utils.TextIO;
 public class PCProg {
     private static final Object YES = "Y";
     @DomainConstraint(mutable = true, optional = false)
-    private Set<PC> objs;
+    private static Set<PC> objs;
 
     /**
      * @effects initialise this to have an empty set of PCs
