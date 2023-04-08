@@ -1,7 +1,9 @@
 package a2_2101040039;
 
 public class PCReport {
-    PCReport() {
+    private static PCReport report = new PCReport();
+
+    private PCReport() {
     }
 
     public static String displayReport(PC[] objs) {
