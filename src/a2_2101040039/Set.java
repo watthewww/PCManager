@@ -149,7 +149,7 @@ public class Set<T> implements Collection<T> {
 			return "Set{ }";
 
 		String s = "Set{" + elements.elementAt(0).toString();
-		for (int i = 1; i < size(); i++) {
+		for (int i = 1; i < size()-1; i++) {
 			s = s + "," + elements.elementAt(i).toString();
 		}
 
