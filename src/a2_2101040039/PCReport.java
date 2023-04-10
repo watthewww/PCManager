@@ -1,6 +1,11 @@
 package a2_2101040039;
 
 public class PCReport {
+    /**
+     *
+     * @requires PC[] objs
+     * @effects return tabular table of recorded PCs
+     */
 
     public String displayReport(PC[] objs) {
         StringBuilder info = new StringBuilder();

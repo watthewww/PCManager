@@ -55,7 +55,6 @@ public class PCProg {
                 sc.next();
             }
         }
-
         sc.nextLine();
         TextIO.put("Enter manufacturer: ");
         String manufacturer = sc.nextLine();
@@ -87,10 +86,24 @@ public class PCProg {
 
     }
 
+    /**
+     *
+     * @effects return recorded PC objects in objs
+     */
     public Set<PC> getObjects() {
         return objs;
     }
 
+    /**
+     * @effects <pre>
+     *     if objs.size > 0
+     *          Vector<PC> pcs = getObjects().getElements()
+     *          PCReport reportObj = new PCReport()
+     *          return reportObj.displayReport(pcs.toArray(new PC[pcs.size()]))
+     *     } else {
+     *          return null
+     * </pre>
+     */
     public String displayReport() {
         if (objs.size() > 0) {
             Vector<PC> pcs = getObjects().getElements();

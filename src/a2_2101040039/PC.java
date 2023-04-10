@@ -1,4 +1,5 @@
 package a2_2101040039;
+
 import utils.*;
 
 /**
@@ -32,14 +33,20 @@ public class PC {
      */
     public PC(@AttrRef("model") String model, @AttrRef("year") int year, @AttrRef("manufacturer") String manufacturer
             , @AttrRef("comps") Set<String> comps) throws NotPossibleException {
-        if (validateModel(model) && validateYear(year) && validateManufacturer(manufacturer) && validateComps(comps)) {
-            this.model = model;
-            this.year = year;
-            this.manufacturer = manufacturer;
-            this.comps = comps;
-        } else {
+        if (!validateModel(model)) {
             throw new NotPossibleException("Invalid data");
         }
+        if (!validateYear(year)) {
+            throw new NotPossibleException("Invalid data");
+        }
+        if (!validateManufacturer(manufacturer)) {
+            throw new NotPossibleException("Invalid data");
+        }
+        this.model = model;
+        this.year = year;
+        this.manufacturer = manufacturer;
+        this.comps = comps;
+
     }
 //observers (optional = false)
 
