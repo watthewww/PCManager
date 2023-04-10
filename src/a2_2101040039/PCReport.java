@@ -1,6 +1,7 @@
 package a2_2101040039;
 
 public class PCReport {
+    private PC pcComps;
 
     public String displayReport(PC[] objs) {
         StringBuilder info = new StringBuilder();
@@ -14,11 +15,15 @@ public class PCReport {
         info.append(System.getProperty("line.separator"));
         for (int i = 0; i < objs.length; i++) {
             PC pc = objs[i];
-            String comps = pc.getComps().toString().replace("Set", "").replace("{", "[").replace("}", "]");
-            String temp = String.format("%3s %20s %6s %15s %-55s %n", i + 1, pc.getModel(), pc.getYear(), pc.getManufacturer(), comps).replace(",", ", ");
+            String comps = pc.getComps().toString().replace("Set", "").replace("{", "[").replace("}", "]").replace(",", ", ");
+            String temp = String.format("%3s %20s %6s %15s %-55s %n", i + 1, pc.getModel(), pc.getYear(), pc.getManufacturer(), comps);
             info.append(temp);
         }
         info.append(line);
         return info.toString();
+    }
+    @Override
+    public String toString() {
+        return "[" + pcComps.getComps().getElements() + "]";
     }
 }

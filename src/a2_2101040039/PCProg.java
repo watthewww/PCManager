@@ -6,6 +6,7 @@ import static utils.TextIO.putln;
 import static utils.TextIO.writeFile;
 import static utils.TextIO.writeStandardOutput;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -41,9 +42,20 @@ public class PCProg {
         Set<String> setComps = new Set<>();
         TextIO.put("Enter model name: ");
         String model = sc.nextLine();
-        //try catch
+        int year = 0;
+        boolean valid = false;
         TextIO.put("Enter year: ");
-        int year = sc.nextInt();
+        while (!valid) {
+            try {
+                year = sc.nextInt();
+                valid = true;
+
+            } catch (InputMismatchException e) {
+                TextIO.putln("Invalid type. Please try again.");
+                sc.next();
+            }
+        }
+
         sc.nextLine();
         TextIO.put("Enter manufacturer: ");
         String manufacturer = sc.nextLine();
