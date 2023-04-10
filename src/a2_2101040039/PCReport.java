@@ -1,7 +1,6 @@
 package a2_2101040039;
 
 public class PCReport {
-    private PC pcComps;
 
     public String displayReport(PC[] objs) {
         StringBuilder info = new StringBuilder();
@@ -21,9 +20,5 @@ public class PCReport {
         }
         info.append(line);
         return info.toString();
-    }
-    @Override
-    public String toString() {
-        return "[" + pcComps.getComps().getElements() + "]";
     }
 }
