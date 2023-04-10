@@ -12,13 +12,13 @@ public class PCReport {
         info.append(System.getProperty("line.separator"));
         info.append(line);
         info.append(System.getProperty("line.separator"));
-
         for (int i = 0; i < objs.length; i++) {
             PC pc = objs[i];
-            String temp = String.format("%-3s %-20s %-6s %-15s %s %n", i + 1, pc.getModel(), pc.getYear(), pc.getManufacturer(), pc.getComps());
+            String comps = pc.getComps().toString().replace("Set", "").replace("{", "[").replace("}", "]");
+            String temp = String.format("%3s %20s %6s %15s %-55s %n", i + 1, pc.getModel(), pc.getYear(), pc.getManufacturer(), comps).replace(",", ", ");
             info.append(temp);
-            //System.out.format("%3s %20s %6s %15s %-55s", i + 1, pc.getModel(), pc.getYear(), pc.getManufacturer(), pc.getComps());
         }
+        info.append(line);
         return info.toString();
     }
 }

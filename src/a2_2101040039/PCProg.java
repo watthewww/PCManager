@@ -40,13 +40,13 @@ public class PCProg {
         Scanner sc = new Scanner(System.in);
         Set<String> setComps = new Set<>();
         TextIO.put("Enter model name: ");
-        String model = sc.next();
+        String model = sc.nextLine();
         //try catch
         TextIO.put("Enter year: ");
         int year = sc.nextInt();
-        TextIO.put("Enter manufacturer: ");
-        String manufacturer = sc.next();
         sc.nextLine();
+        TextIO.put("Enter manufacturer: ");
+        String manufacturer = sc.nextLine();
         TextIO.put("Enter components: ");
         String comps;
         do {
@@ -60,14 +60,28 @@ public class PCProg {
             createObjects();
         } else {
             objs.insert(pc);
-            TextIO.putln("Continue? (Y/N)");
+            TextIO.putln("Continue? [Y/N]");
+            String option = sc.nextLine();
+            do {
+                if (option.equals("Y")) {
+                    createObjects();
+                } else if (!option.equals("N")) {
+                    TextIO.putln("Invalid. Please try again.");
+                    TextIO.putln("Continue? [Y/N]");
+                    option = sc.nextLine();
+                }
+            } while (!option.equals("N"));
         }
 
     }
 
+    public Set<PC> getObjects() {
+        return objs;
+    }
+
     public String displayReport() {
         if (objs.size() > 0) {
-            Vector<PC> pcs = objs.getElements();
+            Vector<PC> pcs = getObjects().getElements();
             PCReport reportObj = new PCReport();
             return reportObj.displayReport(pcs.toArray(new PC[pcs.size()]));
         } else {
